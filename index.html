@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om - Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: rgb(0, 0, 44);
+            color: white;
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: rgb(16, 16, 77);
+            height: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            position: relative;
+            transition: color 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover {
+            text-decoration: none;
+            font-size: 1.01rem;
+            color: rgb(149, 55, 237);
+            border-bottom-color: rgb(149, 55, 237);
+            /* Makes border visible */
+            transition: border-bottom 0.3s ease-in-out;
+        }
+
+        .about-me {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0f0621;
+            /* Dark background for contrast */
+            padding: 80px 20px;
+            color: white;
+        }
+
+        .about-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .image-container {
+            flex: 1;
+            margin-right: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .image-container img {
+            width: 325px;
+            height: 325px;
+            border-radius: 50%;
+            object-position: center top;
+            object-fit: cover;
+            border: 5px solid rgba(149, 55, 237, 0.7);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .text-container {
+            flex: 2;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .text-container h2 {
+            font-size: 2.2rem;
+            color: rgb(149, 55, 237);
+            margin-bottom: 20px;
+        }
+
+        .text-container p {
+            margin-bottom: 15px;
+            color: #d1d1d1;
+        }
+
+        .text-container p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        main hr {
+            border: 0;
+            background: #9c97f1;
+            height: 1.2px;
+            margin: 60px 84px;
+        }
+
+        .left {
+            font-size: 25px;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 100px 0;
+        }
+
+        .firstSection>div {
+            width: 30%;
+        }
+
+        .leftSection {
+            font-size: 2.7rem;
+        }
+
+        .rightSection img {
+            width: 80%;
+            margin: 50px 0;
+        }
+
+        .purple {
+            color: rgb(149, 55, 237);
+        }
+
+        .text-gray {
+            color: gray;
+        }
+
+        #element {
+            color: rgb(149, 55, 237);
+        }
+
+        .secondSection {
+            max-width: 80vw;
+            margin: auto;
+            height: 60vh;
+        }
+
+        .secondSection h1 {
+            font-size: 2rem;
+        }
+
+        .secondSection .box {
+            background: white;
+            width: 77vw;
+            height: 2px;
+            margin: 56px 0;
+            display: flex;
+        }
+
+        .secondSection .vertical {
+            height: 93px;
+            width: 1px;
+            background-color: white;
+            margin: 0 97px;
+        }
+
+        .vertical-title {
+            position: relative;
+            top: 45px;
+            width: 150px;
+            font-size: 18px;
+            right: 40px;
+        }
+
+        .vertical-desc {
+            position: relative;
+            top: 56px;
+            color: gray;
+            width: 150px;
+            font-size: 11px;
+            right: 40px;
+        }
+
+        .image-top {
+            width: 43px;
+            position: relative;
+            top: -49px;
+            left: -21px;
+        }
+
+        .projects-section {
+            height: 100vh;
+        }
+
+        .projects-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .project-card {
+            background: rgba(149, 55, 237, 0.1);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: overlay;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 280px;
+            height: 350px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+
+        .project-card.expanded {
+            width: 420px;
+            height: 550px;
+        }
+
+        .project-card img {
+            width: 270px;
+            height: 140px;
+            border-radius: 8px;
+        }
+
+        .expand-button {
+            width: 30px;
+            height: 30px;
+            background-color: rgb(149, 55, 237);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .expand-button:hover {
+            background-color: #8e3ab2;
+        }
+
+        .project-details {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.4s ease, max-height 0.4s ease;
+            padding-left: 20px;
+            border-left: 2px solid rgb(149, 55, 237);
+        }
+
+        .project-card.expanded .project-details {
+            opacity: 1;
+            max-height: 250px;
+        }
+
+        .projects-container .project-card:not(.expanded) {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card.expanded~.project-card {
+            transform: translateX(140px);
+        }
+
+        .project-short-desc {
+            font-size: small;
+            color: #9c97f1;
+        }
+
+        .projects-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-section {
+            background-color: #121212;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact-container h3 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            /* Reduced Boldness */
+            color: rgb(149, 55, 237);
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 2px solid rgba(149, 55, 237, 0.7);
+            background: #0f0621;
+            color: white;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .contact-form button {
+            background-color: rgb(149, 55, 237);
+            color: white;
+            padding: 12px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: rgba(149, 55, 237, 0.8);
+        }
+
+        /* Ensure social icons remain unchanged */
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: rgb(149, 55, 237);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Om's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#About">About Me</a></li>
+                    <li><a href="#Skills">Skills</a></li>
+                    <li><a href="#Projects">Projects</a></li>
+                    <li><a href="#Contactme">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="firstSection" id="Home">
+            <div class="leftSection">
+                Hi, my name is <span class="purple">Om</span>
+
+                <div>And I am a passionate</div>
+                <span id="element"></span>
+            </div>
+            <div class="rightSection">
+                <img src="developerimg.png" alt="developer">
+            </div>
+        </section>
+        <section class="about-me" id="About">
+            <div class="about-container">
+                <div class="image-container">
+                    <img src="me.jpg" alt="Your Name">
+                </div>
+                <div class="text-container">
+                    <h2>About Me</h2>
+                    <p>Hello! I'm <strong>Om</strong>, a passionate developer who enjoys creating innovative solutions
+                        to real-world problems. With a deep interest in game development, web designing, and AI, I am
+                        constantly learning new technologies to enhance my skills and build impactful projects. When I’m
+                        not coding, you can find me exploring new ideas, writing content, reading, or experimenting with
+                        new tech.</p>
+                    <p>I have a strong foundation in various programming languages and tools, and I'm always excited to
+                        take on new challenges!</p>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section class="secondSection" id="Skills">
+            <span class="text-gray">What I have learnt so far</span>
+            <h1>My Skill Set</h1>
+            <div class="box">
+                <div class="vertical">
+                    <img class="image-top" src="cplusplus.png">
+                    <div class="vertical-title">Backend Development</div>
+                    <div class="vertical-desc">
+                        I have major experience with coding in backend languages like C, C++, C#, Java, PHP and Python.
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="html.png">
+                    <div class="vertical-title">Web Designing</div>
+                    <div class="vertical-desc">
+                        I've made a few websites using HTML,CSS and JS and I feel like I have gotten familiar with them.
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="unity.png">
+                    <div class="vertical-title">Unity Development</div>
+                    <div class="vertical-desc">
+                        Unity has always been my go-to engine for making games through C# coding and engine mechanics.
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="mixamo.png">
+                    <div class="vertical-title">Unity Advanced Animation</div>
+                    <div class="vertical-desc">
+                        Animation in Unity has been my favorite field of work so far and I'd love to pursue a career in
+                        the same.
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="writer.png">
+                    <div class="vertical-title">Content Writing</div>
+                    <div class="vertical-desc">
+                        Content writing is more like a hobby for me, but I do still take it quite seriously since I
+                        write alot in my free time.
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="quantum.png">
+                    <div class="vertical-title">Quantum Computing</div>
+                    <div class="vertical-desc">
+                        Quantum computing is a very interesting field of study that never fails to blow my mind and I
+                        just love to keep exploring it.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section class="projects-section" id="Projects">
+        <h2 class="projects-title">My Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <img src="project1.png" alt="Project 1">
+                <div class="project-info">
+                    <h3>Saarthi: Driver Alertness Monitoring Device</h3>
+                    <div class="project-short-desc">
+                        <p>An IoT-enabled device designed to prevent drivers from falling asleep, ensuring safety on the
+                            road.</p>
+                    </div>
+                </div>
+                <div class="expand-button" onclick="toggleExpand(this)">→</div>
+                <div class="project-details">
+                    <p>Saarthi is an IoT-enabled device that monitors driver alertness to prevent accidents caused by
+                        drowsiness. Using a camera to detect eye movement, the system triggers an alarm if the driver's
+                        eyes are closed for more than 3 seconds. Built with a Raspberry Pi and custom coding, Saarthi
+                        aims to reduce road accidents and save lives by ensuring drivers stay alert.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="project2.png" alt="Project 2">
+                <div class="project-info">
+                    <h3>Nagrik Aur Samvidhan: Interactive Constitution Learning Game</h3>
+                    <div class="project-short-desc">
+                        <p>An interactive, choice-based game that helps players learn about the Indian Constitution in a
+                            fun and engaging way.</p>
+                    </div>
+                </div>
+                <div class="expand-button" onclick="toggleExpand(this)">→</div>
+                <div class="project-details">
+                    <p>Nagrik Aur Samvidhan is an interactive game that educates players about the Indian Constitution
+                        through choice-based scenarios. Created for the Smart India Hackathon, the game presents players
+                        with decisions based on the Constitution, making learning fun and immersive. Its success lies in
+                        its engaging plot and ability to teach constitutional principles in an accessible way.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="project3.png" alt="Project 3">
+                <div class="project-info">
+                    <h3>ProjeXStock: AI-Based Stock Price Prediction</h3>
+                    <div class="project-short-desc">
+                        <p>A web application that predicts stock and share prices using AI APIs to help users avoid
+                            losses in the stock market.</p>
+                    </div>
+                </div>
+                <div class="expand-button" onclick="toggleExpand(this)">→</div>
+                <div class="project-details">
+                    <p>ProjeXStock is a web application that predicts stock prices using AI APIs like Alpha Vantage. The
+                        platform analyzes market trends to provide users with insights, helping them make informed
+                        investment decisions and reduce risks. Though still a work in progress, ProjeXStock aims to
+                        offer a valuable tool for navigating the stock market.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="project4.png" alt="Project 4">
+                <div class="project-info">
+                    <h3>Anti Bunk Attendance System: Future Project</h3>
+                    <div class="project-short-desc">
+                        <p>A future system that uses IP addresses to verify student attendance, preventing bunking in
+                            college.</p>
+                    </div>
+                </div>
+                <div class="expand-button" onclick="toggleExpand(this)">→</div>
+                <div class="project-details">
+                    <p>The Anti Bunk Attendance System uses IP addresses to verify student attendance and prevent
+                        bunking. Students are granted attendance when they visit a link while connected to the college
+                        Wi-Fi. If accessed from another network, the system detects the bunk and prevents attendance.
+                        This project aims to improve accountability in college attendance systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact-section" id="Contactme">
+        <div class="contact-container">
+            <h3>Get in Touch</h3> <!-- Changed from h2 to h3 and reduced boldness -->
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Your Phone (Optional)">
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="social-icons">
+                <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js">
+    </script>
+
+    <!-- Setup and start animation! -->
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Backend Developer.', 'Web Designer.', 'Fast Learner.', 'Content Writer.', 'Game Developer.'],
+            typeSpeed: 50,
+            loop: true,
+            backDelay: 1500,
+        });
+    </script>
+    <script>
+        let openCard = null;
+
+        function toggleExpand(button) {
+            let card = button.parentElement;
+            let allCards = document.querySelectorAll(".project-card");
+
+            // If another card is open, close it first
+            if (openCard && openCard !== card) {
+                openCard.classList.remove("expanded");
+                openCard.querySelector(".expand-button").innerText = "→";
+            }
+
+            // Toggle the selected card
+            card.classList.toggle("expanded");
+
+            // Update the openCard reference
+            openCard = card.classList.contains("expanded") ? card : null;
+
+            // Update button icon
+            button.innerText = card.classList.contains("expanded") ? "←" : "→";
+
+            // Adjust shifting logic
+            allCards.forEach((c, index) => {
+                c.style.transform = "translateX(0)"; // Reset all transforms
+
+                if (c.classList.contains("expanded")) {
+                    for (let i = index + 1; i < allCards.length; i++) {
+                        allCards[i].style.transform = "translateX(140px)"; // Shift next cards
+                    }
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>
